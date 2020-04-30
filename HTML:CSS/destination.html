@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>宛先登録 | SUMOKAN</title>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<link href="/css/destination.css" th:href="@{/css/destination.css}" rel="stylesheet"/>
+<link href="/css/common.css" th:href="@{/css/common.css}" rel="stylesheet"/>
+</head>
+<body>
+<header th:insert="fragments/page_header.html :: pageHeader">
+</header>
+
+<div title="宛先登録" class="container">
+	<h2>宛先登録</h2>
+	<table class="table_box" id="register">
+		<tr>
+			<th>宛先氏名</th>
+			<td>
+				<label class="name_label">
+					<input type="text" name="familyName" th:value="${user.familyName}"  placeholder="姓" maxlength="16" style="width: 25%;"  />       
+					<input type="text" name="firstName" th:value="${user.firstName}"  placeholder="名" maxlength="16" style="width: 25%;" />       
+				</label>
+			</td>
+      	</tr>
+      	<tr>
+      		<th>住所</th>
+      		<td>
+				<input type="text" name="address" placeholder="住所" maxlength="50" class="address_box"/>
+			</td>
+		</tr>
+		<tr>
+			<th>電話番号<br><span class="tel_syosai">(半角数字10~13文字）</span></th>
+		  	<td  class="telNumber_box">
+		 	 	<input type="text" name="telNumber" placeholder="0311112222" maxlength="13" style="margin-left: 2%; width: 30%;" />
+		    </td>
+		</tr>
+	</table>
+	<label class="dest_button">
+		<input type="button" value="確認" style="margin-right: 10px; padding:2px 35px;" class="button" id="confirm">
+		<input type="button" value="クリア" class="button" style="padding: 2px 30px;" id="resetButton">
+	</label>
+</div>
+
+ <!-- Modal Dialog (ユーザー入力エラー) -->
+ <div th:insert="fragments/dialog_input_destination_error::dialogInputDestinationError"></div>
+  
+  <!-- Modal Dialog (入力内容確認) -->
+  <div th:insert="fragments/dialog_input_destination_confirm::dialogInputDestinationConfirm"></div>
+
+<script>
+
+const errorSelector = {
+  '姓': '.familyNameError',
+  '名': '.firstNameError',
+  '電話番号': '.telNumberError',
+  '住所': '.addressError',
+};
+$(() => {
+  $('#resetButton').on('click', () => {
+     $('table').find("input").val("");
+  });
+  
+  $('input#confirm').on('click', () => {
+		let errInfo = validate({
+		  'familyName': checker.familyName,
+		  'firstName': checker.firstName,
+		  'address': checker.address,
+		  'telNumber': checker.telNumber
+		});
+		if (errInfo.isError) {
+		  createErrorDialog(errInfo.errMsg);
+		  $("#inputDestinationError").dialog("open");
+		} else {
+		  createConfirmDialog({
+		    'familyName': checker.familyName,
+		    'firstName': checker.firstName,
+		    'address': checker.address,
+		    'telNumber': checker.telNumber
+		  });
+		  $("#inputDestinationConfirm").dialog("open");
+		}
+  });
+
+});
+
+
+$(function() {
+  $('#inputDestinationError').dialog(dialogConfig.inputDestinationError);
+  $('#inputDestinationConfirm').dialog(dialogConfig.inputDestinationConfirm);
+});
+
+</script>
+
+</body>
+</html>

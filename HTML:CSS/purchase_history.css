@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+body{
+	background:linear-gradient(to bottom,#00d3cc,#FFFFFF);		
+	background-attachment: fixed;
+	margin:0;
+}
+
+.hidden {
+	display: none;
+}
+
+.noData{
+	text-align:center;
+    height: 300px;
+}
+.noData p{
+	padding: 20px;
+}
+
+.info {
+	color: #008000;
+}
+
+h2{
+	text-align: center;
+}
+.delete_input{
+	width:35%;
+	background-color: #00409b;
+	color: white;
+	border-radius: 6px;
+    -webkit-border-radius: 6px;/* for Safari and Chrome 対応*/
+    -moz-border-radius: 6px;/* for Firefox 対応*/
+    margin-top:3%;
+}
+
+tr,th,table,td{
+    border: 1px solid black;
+    border-collapse:collapse
+}
+
+th{
+	background-color:#dddfdf;
+	padding: 0% 1%;
+	font-size: 0.95em;
+}
+
+td{
+	font-size: 0.9em;
+    text-align: center;
+}
+
+.container{
+	background-color:white;
+	border-radius: 20px;
+    -webkit-border-radius: 20px;/* for Safari and Chrome 対応*/
+    -moz-border-radius: 20px;/* for Firefox 対応*/
+    padding: 1px 10px 10px;
+
+}
+
+
+.delete_button{
+	display: block;
+	margin-left:80%;
+	
+}
+
+
+.table_box{
+	margin:auto;
+	table-layout: fixed;
+}

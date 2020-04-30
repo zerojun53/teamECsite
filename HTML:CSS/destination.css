@@ -1,0 +1,79 @@
+@charset "UTF-8";
+
+body{
+	background:linear-gradient(to bottom,#00d3cc,#FFFFFF)fixed;		
+	background-attachment: fixed;
+	margin:0;
+}
+
+.hidden {
+	display: none;
+	
+}
+
+h2{
+	text-align: center;
+	margin-right: 13%;
+	padding-top:5px;
+}
+tr,th,table,td{
+    border: 1px solid black;
+    border-collapse:collapse
+}
+
+.button{
+	background-color: #00409b;
+	color: white;
+	border-radius: 6px;
+    -webkit-border-radius: 6px;/* for Safari and Chrome 対応*/
+    -moz-border-radius: 6px;/* for Firefox 対応*/
+}
+th{
+	background-color:#dddfdf;
+	width: 30%;
+}
+
+.container{
+	
+	background-color:white;
+	border-radius: 20px;
+    -webkit-border-radius: 20px;/* for Safari and Chrome 対応*/
+    -moz-border-radius: 20px;/* for Firefox 対応*/
+	text-align: center;
+	padding-left: 10%;
+	padding-bottom: 15px;
+}
+
+.name_label{
+	display: block;
+	text-align: left;
+	margin: 0 2%;
+}
+
+.tel_syosai{
+	font-size:0.8em;
+}
+.dest_button{
+	display: block;
+	margin-left:38%;
+	margin-top:1%;
+	
+}
+.address_box{
+	width:95%;
+	
+}
+.telNumber_box{
+	text-align:left;
+}
+
+.table_box{
+	
+	
+	table-layout: fixed;
+	width: 80%;
+}
+.user {
+	width:85%; 
+	margin:auto;
+}
